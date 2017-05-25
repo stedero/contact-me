@@ -18,7 +18,8 @@ export class ContactListComponent implements OnInit {
   }
 
   onSubmit() {
-    this.contacts.push(this.contact);
+    let newContact: Contact = new Contact(this.contact.name, this.contact.phone);
+    this.contacts.push(newContact);
     this.storageService.write(this.contacts);
   }
 
