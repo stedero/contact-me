@@ -1,0 +1,15 @@
+<form (submit)="onSubmit()">
+  <label for="name">Name:</label>
+  <input name="name" id="name" [(ngModel)]="contact.name">
+  <label for="phone">Phone:</label>
+  <input name="phone" id="phone" [(ngModel)]="contact.phone">
+  <input type="submit">
+</form>
+<div>
+  <ul>
+    <li *ngFor="let contact of contacts">
+      <a [routerLink]="[contact.id]">{{contact.name}}</a><br>{{contact.phone}}
+    </li>
+  </ul>
+
+</div>

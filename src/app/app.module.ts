@@ -5,10 +5,17 @@ import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ContactListComponent } from './contact-list/contact-list.component';
+import { StorageService } from './storage/storage-service';
+import { LocalStorageService } from './storage/local-storage.service';
+import { MockStorageService } from "./storage/mock-storage.service";
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContactListComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -16,7 +23,7 @@ import { AppComponent } from './app.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ { provide: StorageService, useClass: LocalStorageService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
